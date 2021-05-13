@@ -1,0 +1,14 @@
+<div style="display: flex;" >
+  <div style="display: flex; margin: 0px 13px;">
+    <div class="circle__icon" *ngIf="todo" [ngStyle]="checkedCircle">
+      <div class="circle" (click)="handleCheck(todo.id)">
+        <img class="images" src="./../../../assets/images/icon-check.svg">
+        <!-- id="check" -->
+      </div>
+    </div>
+  </div>
+  <span class="item__todo" *ngIf="todo"
+    [ngStyle]="checkedStyles">
+    {{todo.description}}
+  </span>
+</div>

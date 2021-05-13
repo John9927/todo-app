@@ -1,0 +1,111 @@
+
+.container__images {
+  display: flex;
+  height: 300px;
+  width: 100%;
+  position: relative;
+}
+
+.image {
+  display: flex;
+  width: 100%;
+  background: url("./../../assets/images/bg-desktop-dark.jpg") no-repeat;
+}
+
+.container__title {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: absolute;
+}
+
+.title {
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+  height: 29px;
+  margin-top: -233px;
+  align-items: center;
+}
+
+.span__title {
+  font-size: 32px;
+  color: white;
+  letter-spacing: 4.4px;
+  font-weight: bold;
+}
+
+.logo__sun {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+// Card
+
+.container__card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin-top: -185px;
+}
+
+.card {
+  display: flex;
+  width: 400px;
+  margin: 0 auto;
+  height: 50px;
+  background: hsl(235, 24%, 19%);
+  align-items: center;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+
+.fa-circle {
+  width: 20px;
+  height: 20px;
+  margin: 0px 13px;
+  color: hsl(234, 11%, 52%);
+}
+
+.items__card {
+  display: flex;
+  width: 400px;
+  margin: 0 auto;
+  height: 50px;
+  background: hsl(235, 24%, 19%);
+  align-items: center;
+  border-radius: initial;
+
+  &:first-child {
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+  }
+
+}
+
+.input {
+  border: 0;
+  background: transparent;
+  font-size: 14px;
+  width: 100%;
+  margin-bottom: -2px;
+  color: white;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+
+@media screen and (max-width: 375px) {
+  .container__images {
+    height: 200px;
+  }
+  .image {
+    background: url("./../../assets/images/bg-mobile-dark.jpg") no-repeat;
+  }
+}

@@ -1,0 +1,21 @@
+<div class="container__images">
+  <div class="image"></div>
+</div>
+
+<div class="container__title">
+  <div class="title">
+    <span class="span__title">TODO</span>
+    <img class="logo__sun" src="./../../assets/images/icon-sun.svg">
+  </div>
+</div>
+
+<div class="container__card">
+  <div class="card">
+    <i class="far fa-circle"></i>
+    <input (keyup.enter)="handleNewTodo($event)" class="input" type="text" placeholder="Create a new todo..." />
+  </div>
+
+  <div *ngFor="let item of todos" class="items__card">
+    <app-todo-item (onCheck)="handleTodoCheck($event)" [todo]="item"></app-todo-item>
+  </div>
+</div>
