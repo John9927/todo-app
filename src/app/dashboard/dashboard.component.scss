@@ -1,3 +1,11 @@
+.background {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  transition: 400ms;
+  z-index: -1;
+  background: var(--darkNightt);
+}
 
 .container__images {
   display: flex;
@@ -10,6 +18,7 @@
   display: flex;
   width: 100%;
   background: url("./../../assets/images/bg-desktop-dark.jpg") no-repeat;
+  background-size: cover;
 }
 
 .container__title {
@@ -21,7 +30,7 @@
 
 .title {
   display: flex;
-  width: 400px;
+  width: 360px;
   justify-content: space-between;
   height: 29px;
   margin-top: -233px;
@@ -33,6 +42,7 @@
   color: white;
   letter-spacing: 4.4px;
   font-weight: bold;
+  pointer-events: none;
 }
 
 .logo__sun {
@@ -54,29 +64,31 @@
 
 .card {
   display: flex;
-  width: 400px;
+  width: 360px;
   margin: 0 auto;
   height: 50px;
-  background: hsl(235, 24%, 19%);
+  transition: 400ms;
+  background: var(--darkNight);
   align-items: center;
   border-radius: 4px;
   margin-bottom: 20px;
 }
 
-
 .fa-circle {
   width: 20px;
   height: 20px;
   margin: 0px 13px;
-  color: hsl(234, 11%, 52%);
+  transition: 400ms;
+  color: var(--circle);
 }
 
 .items__card {
   display: flex;
-  width: 400px;
+  width: 360px;
   margin: 0 auto;
   height: 50px;
-  background: hsl(235, 24%, 19%);
+  background: var(--darkNight);
+  transition: 400ms;
   align-items: center;
   border-radius: initial;
 
@@ -93,11 +105,20 @@
   font-size: 14px;
   width: 100%;
   margin-bottom: -2px;
-  color: white;
+  color: var(--text);
+  transition: 400ms;
 
   &:focus {
     outline: none;
   }
+}
+
+.error__card {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  width: 100%;
+  color: red;
 }
 
 
@@ -108,4 +129,30 @@
   .image {
     background: url("./../../assets/images/bg-mobile-dark.jpg") no-repeat;
   }
+
+  .container__card {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .card {
+    display: flex;
+    width: 90%;
+    margin-top: -22%;
+  }
+  .items__card {
+    display: flex;
+    width: 90%;
+    cursor: pointer;
+    pointer-events: none;
+  }
+
+  .title {
+    width: 90%;
+    height: initial;
+  }
+
 }
+
+

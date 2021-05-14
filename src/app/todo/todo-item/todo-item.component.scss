@@ -3,7 +3,8 @@
   width: 20px;
   height: 20px;
   display: flex;
-  color: hsl(234, 11%, 52%);
+  transition: 400ms;
+  color: var(--circle);
   border-radius: 50%;
 
   &:hover {
@@ -14,7 +15,8 @@
 .circle {
   display: flex;
   border-radius: 50%;
-  border: 2.2px solid hsl(234, 11%, 52%);
+  transition: 400ms;
+  border: 2.2px solid var(--circle);
   width: 20px;
   height: 20px;
   margin: auto;
@@ -24,7 +26,8 @@
     width: 16.5px;
     height: 16px;
     cursor: pointer;
-    background: hsl(235, 24%, 19%);
+    transition: 400ms;
+    background: var(--darkNight);
   }
 }
 
@@ -43,6 +46,28 @@
   width: 100%;
   font-size: 14px;
   justify-content: flex-start;
-  color: white;
+  transition: 400ms;
+  color: var(--text);
   margin-top: 4px;
 }
+
+.container__item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.item__remove {
+  display: flex;
+  width: 45px;
+  cursor: pointer;
+}
+
+.fa-times {
+  width: 14px;
+  height: 21px;
+  transition: 400ms;
+  color: var(--text);
+}
+
+

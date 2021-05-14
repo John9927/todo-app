@@ -1,14 +1,19 @@
-<div style="display: flex;" >
-  <div style="display: flex; margin: 0px 13px;">
-    <div class="circle__icon" *ngIf="todo" [ngStyle]="checkedCircle">
-      <div class="circle" (click)="handleCheck(todo.id)">
-        <img class="images" src="./../../../assets/images/icon-check.svg">
-        <!-- id="check" -->
+<ng-container *ngIf="todo" class="container">
+  <div style="display: flex; width: 100%;" theme>
+    <div style="display: flex; margin: 0px 13px;">
+      <div class="circle__icon">
+        <div class="circle" (click)="handleCheck(todo.id)">
+          <img class="images" *ngIf="todo.checked" [ngStyle]="checkedCircle" src="./../../../assets/images/icon-check.svg">
+        </div>
       </div>
     </div>
+    <div class="container__item">
+      <span class="item__todo" theme [ngStyle]="checkedStyles">
+        {{todo.description}}
+      </span>
+        <span class="item__remove" (click)="onClickRemove(todo.id)" theme>
+          <i class="fas fa-times"></i>
+        </span>
+    </div>
   </div>
-  <span class="item__todo" *ngIf="todo"
-    [ngStyle]="checkedStyles">
-    {{todo.description}}
-  </span>
-</div>
+</ng-container>

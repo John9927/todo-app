@@ -3,7 +3,7 @@ body {
   font-size: 62.5%;
   font-family: 'Josefin Sans', sans-serif;
   height: 100%;
-  background: hsl(235, 21%, 11%);
+  background: var(--background);
 }
 
 *,*::after,*::before{

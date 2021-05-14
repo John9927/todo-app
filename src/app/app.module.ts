@@ -5,16 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TodoItemComponent } from './todo/todo-item/todo-item.component';
+import { darkTheme, lightTheme, ThemeModule } from './theme';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    TodoItemComponent
+    TodoItemComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ThemeModule.forRoot({
+      themes: [lightTheme, darkTheme],
+      active: 'light'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

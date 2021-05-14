@@ -1,3 +1,5 @@
+<div class="background" theme></div>
+
 <div class="container__images">
   <div class="image"></div>
 </div>
@@ -5,17 +7,28 @@
 <div class="container__title">
   <div class="title">
     <span class="span__title">TODO</span>
-    <img class="logo__sun" src="./../../assets/images/icon-sun.svg">
+    <img class="logo__sun" id="switch" (click)="toggle()" src="./../../assets/images/icon-sun.svg">
   </div>
 </div>
 
-<div class="container__card">
+<div class="container__card" theme>
   <div class="card">
     <i class="far fa-circle"></i>
-    <input (keyup.enter)="handleNewTodo($event)" class="input" type="text" placeholder="Create a new todo..." />
+    <input autocomplete="off" (keyup.enter)="handleNewTodo($event)" class="input" id="input" type="text" placeholder="Create a new todo..." />
   </div>
 
-  <div *ngFor="let item of todos" class="items__card">
-    <app-todo-item (onCheck)="handleTodoCheck($event)" [todo]="item"></app-todo-item>
+  <!-- Error -->
+  <div *ngIf="error" (click)="onClickError()" class="items__card">
+    <ng-container >
+        <span class="error__card"  theme>
+          Inserisci minimo 3 caratteri
+        </span>
+    </ng-container>
+  </div>
+
+  <div *ngFor="let item of todos" class="items__card" >
+    <app-todo-item style="display: flex; width: 100%" (onCheck)="handleTodoCheck($event)" [todo]="item"></app-todo-item>
   </div>
 </div>
+
+
