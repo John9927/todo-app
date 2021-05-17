@@ -28,8 +28,14 @@ export class TodoItemComponent implements OnInit {
     return {'dispay': this.todo.checked ? 'flex': 'none'}
   }
 
+  get checked() {
+    return {
+      'background': this.todo.checked ? 'linear-gradient(90deg, rgba(87,221,255,1) 0%, rgba(192,50,205,1) 100%)': 'transparent',
+      'border': this.todo.checked ? '2.2px solid linear-gradient(90deg, rgba(87,221,255,1) 0%, rgba(192,50,205,1) 100%)': '2.2px solid hsl(234, 11%, 52%)'
+  }
+  }
+
   handleCheck() {
-    console.log("mi hai cliccato")
     this.onCheck.emit({ id: this.todo.id, checked: !this.todo.checked });
     // SetItem check
     localStorage.setItem("todos", JSON.stringify(this.mService.todos));

@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
   root: any;
   light: any;
   error = false;
+  active: any;
   constructor(private themeService: ThemeService, public mService: ManagementService) { }
   newTodo: Todo;
 
@@ -34,7 +35,6 @@ export class DashboardComponent implements OnInit {
         this.error = false;
       }, 3000)
     }
-    console.log(this.mService.todos);
 
     // Svuoto il campo input ogni volta che inserisco un valore
     (<HTMLInputElement>document.getElementById('input')).value = '';
@@ -49,7 +49,6 @@ export class DashboardComponent implements OnInit {
       t.id === msg.id ? (t.checked = !t.checked) : t;
       return { ...t };
     })
-    console.log(this.mService.todos)
   }
 
   private generateSeqId(arr: any, prop: any): number {
@@ -57,15 +56,32 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.allTodo()
+    this.allTodo();
+
+    this.active = this.themeService.getActiveTheme();
+    if(this.active.name === 'dark') {
+      document.getElementById('switch').style.background = 'url("./../../assets/images/icon-moon.svg")'
+      document.getElementById('switch').style.backgroundSize = 'cover'
+      document.getElementById('switch').style.backgroundRepeat = 'no-repeat'
+    } else {
+      document.getElementById('switch').style.background = 'url("./../../assets/images/icon-sun.svg")'
+      document.getElementById('switch').style.backgroundSize = 'cover'
+      document.getElementById('switch').style.backgroundRepeat = 'no-repeat'
+    }
   }
 
   toggle() {
-    const active = this.themeService.getActiveTheme();
-    if (active.name === 'light') {
+    this.active = this.themeService.getActiveTheme();
+    if (this.active.name === 'light') {
+      document.getElementById('switch').style.background = 'url("./../../assets/images/icon-moon.svg")'
+      document.getElementById('switch').style.backgroundSize = 'cover'
+      document.getElementById('switch').style.backgroundRepeat = 'no-repeat'
       localStorage.setItem("luce", "dark");
       this.themeService.setTheme('dark');
     } else {
+      document.getElementById('switch').style.background = 'url("./../../assets/images/icon-sun.svg")'
+      document.getElementById('switch').style.backgroundSize = 'cover'
+      document.getElementById('switch').style.backgroundRepeat = 'no-repeat'
       localStorage.setItem("luce", "light");
       this.themeService.setTheme('light');
     }

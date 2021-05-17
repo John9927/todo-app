@@ -2,7 +2,7 @@
   <div style="display: flex; width: 100%;" theme>
     <div style="display: flex; margin: 0px 13px;">
       <div class="circle__icon">
-        <div class="circle" (click)="handleCheck(todo.id)">
+        <div class="circle"  [ngStyle]="checked" (click)="handleCheck(todo.id)">
           <img class="images" *ngIf="todo.checked" [ngStyle]="checkedCircle" src="./../../../assets/images/icon-check.svg">
         </div>
       </div>

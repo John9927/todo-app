@@ -3,7 +3,6 @@
   width: 20px;
   height: 20px;
   display: flex;
-  transition: 400ms;
   color: var(--circle);
   border-radius: 50%;
 
@@ -15,20 +14,19 @@
 .circle {
   display: flex;
   border-radius: 50%;
-  transition: 400ms;
-  border: 2.2px solid var(--circle);
   width: 20px;
   height: 20px;
   margin: auto;
 
   &:hover {
     border: 0;
-    width: 16.5px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     transition: 400ms;
     background: var(--darkNight);
   }
+
 }
 
 .images {
