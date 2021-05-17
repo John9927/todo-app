@@ -57,7 +57,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.allTodo()
   }
 
   toggle() {
@@ -76,14 +76,23 @@ export class DashboardComponent implements OnInit {
   }
 
   onlyCompleted() {
+    document.getElementById('itemCompleted').style.color = "#4646f6";
+    document.getElementById('itemActive').style.color = "var(--text)";
+    document.getElementById('itemAll').style.color = "var(--text)";
     this.mService.onlyCompleted();
   }
 
   onlyActive() {
+    document.getElementById('itemActive').style.color = "#4646f6";
+    document.getElementById('itemCompleted').style.color = "var(--text)";
+    document.getElementById('itemAll').style.color = "var(--text)";
     this.mService.onlyActive();
   }
 
   allTodo() {
+    document.getElementById('itemAll').style.color = "#4646f6";
+    document.getElementById('itemCompleted').style.color = "var(--text)";
+    document.getElementById('itemActive').style.color = "var(--text)";
     this.mService.allTodo();
   }
 }
