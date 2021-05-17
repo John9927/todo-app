@@ -1,3 +1,4 @@
+import { ManagementService } from './../services/management.service';
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../theme';
 import { CheckEvent } from '../todo/todo-item/todo-item.component';
@@ -13,27 +14,28 @@ export class DashboardComponent implements OnInit {
   root: any;
   light: any;
   error = false;
-
-  constructor(private themeService: ThemeService) { }
-
-  todos: Todo[] = [];
+  constructor(private themeService: ThemeService, public mService: ManagementService) { }
+  newTodo: Todo;
 
   handleNewTodo(event: Event) {
-    console.log(event);
-    let valueLength = (event.target as HTMLInputElement).value;
-    if(valueLength.length >= 3) {
-      const newTodo: Todo = {
-        id: this.generateSeqId(this.todos, 'id'),
+    this.mService.valueLength = (event.target as HTMLInputElement).value;
+    if(this.mService.valueLength.length >= 3) {
+      this.newTodo = {
+        id: this.generateSeqId(this.mService.todos, 'id'),
         description: (event.target as HTMLInputElement).value,
         checked: false,
       };
-      this.todos = [...this.todos, newTodo];
-    } else if (valueLength.length >= 0) {
+      this.mService.todos = [...this.mService.todos, this.newTodo];
+      // SetItem localStorage
+      localStorage.setItem("todos", JSON.stringify(this.mService.todos));
+    } else if (this.mService.valueLength.length >= 0) {
       this.error = true;
       setTimeout(() => {
         this.error = false;
       }, 3000)
     }
+    console.log(this.mService.todos);
+
     // Svuoto il campo input ogni volta che inserisco un valore
     (<HTMLInputElement>document.getElementById('input')).value = '';
   }
@@ -43,11 +45,11 @@ export class DashboardComponent implements OnInit {
   }
 
   handleTodoCheck(msg: CheckEvent) {
-    this.todos = this.todos.map((t) => {
+    this.mService.todos = this.mService.todos.map((t) => {
       t.id === msg.id ? (t.checked = !t.checked) : t;
       return { ...t };
     })
-    console.log(this.todos)
+    console.log(this.mService.todos)
   }
 
   private generateSeqId(arr: any, prop: any): number {
@@ -55,6 +57,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   toggle() {
@@ -66,5 +69,21 @@ export class DashboardComponent implements OnInit {
       localStorage.setItem("luce", "light");
       this.themeService.setTheme('light');
     }
+  }
+
+  clearCompleted() {
+    this.mService.clearCompleted();
+  }
+
+  onlyCompleted() {
+    this.mService.onlyCompleted();
+  }
+
+  onlyActive() {
+    this.mService.onlyActive();
+  }
+
+  allTodo() {
+    this.mService.allTodo();
   }
 }

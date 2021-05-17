@@ -1,7 +1,7 @@
+import { ManagementService } from './../../services/management.service';
 import { Todo } from './../../dashboard/dashboard.component';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ThemeService } from 'src/app/theme';
-import { threadId } from 'worker_threads';
 
 export type CheckEvent = { id: number, checked: boolean};
 
@@ -13,9 +13,10 @@ export type CheckEvent = { id: number, checked: boolean};
 export class TodoItemComponent implements OnInit {
   @Input() todo!: Todo;
   @Output() onCheck: EventEmitter<CheckEvent> = new EventEmitter();
-  constructor(private themeService: ThemeService) { }
+  constructor(private themeService: ThemeService, private mService: ManagementService) { }
 
   ngOnInit(): void {
+    var todos = JSON.parse(localStorage.getItem("todosCompleted"))
     this.todo = { ...this.todo };
   }
 
@@ -29,11 +30,12 @@ export class TodoItemComponent implements OnInit {
 
   handleCheck() {
     this.onCheck.emit({ id: this.todo.id, checked: !this.todo.checked });
+    // SetItem check
+    localStorage.setItem("todos", JSON.stringify(this.mService.todos));
   }
 
   onClickRemove(id: number) {
-    this.todo = null;
-    // document.getElementById('items__card')[id].style.display = 'none';
+    localStorage.setItem("todos", JSON.stringify(this.mService.todos));
+    this.mService.deleteTodoById(id);
   }
-
 }

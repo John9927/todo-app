@@ -26,8 +26,23 @@
     </ng-container>
   </div>
 
-  <div *ngFor="let item of todos" class="items__card" >
+  <div *ngFor="let item of mService.todos" class="items__card" >
     <app-todo-item style="display: flex; width: 100%" (onCheck)="handleTodoCheck($event)" [todo]="item"></app-todo-item>
+  </div>
+
+  <!-- Bottom card -->
+  <div class="container__section">
+    <div class="items__card item">
+      <div class="section">
+        <span>{{this.mService.todos.length}}&nbsp; items left</span>
+        <div style="display: flex;">
+          <span class="section__item" (click)="allTodo()">All</span>
+          <span class="section__item" (click)="onlyActive()">Active</span>
+          <span class="section__item" (click)="onlyCompleted()">Completed</span>
+        </div>
+        <span (click)="clearCompleted()" style="cursor: pointer;">Clear Completed</span>
+      </div>
+    </div>
   </div>
 </div>
 
