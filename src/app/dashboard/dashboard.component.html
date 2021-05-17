@@ -35,12 +35,24 @@
     <div class="items__card item">
       <div class="section">
         <span>{{this.mService.todos.length}}&nbsp; items left</span>
-        <div style="display: flex;">
+        <div id="allSection">
           <span class="section__item" id="itemAll" (click)="allTodo()">All</span>
           <span class="section__item" id="itemActive" (click)="onlyActive()">Active</span>
           <span class="section__item" id="itemCompleted" (click)="onlyCompleted()">Completed</span>
         </div>
         <span (click)="clearCompleted()" style="cursor: pointer;">Clear Completed</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="container__section">
+    <div class="items__card item">
+      <div id="section">
+        <div style="display: flex;">
+          <span class="section__item" id="itemAllMobile" (click)="allTodo()">All</span>
+          <span class="section__item" id="itemActiveMobile" (click)="onlyActive()">Active</span>
+          <span class="section__item" id="itemCompletedMobile" (click)="onlyCompleted()">Completed</span>
+        </div>
       </div>
     </div>
   </div>

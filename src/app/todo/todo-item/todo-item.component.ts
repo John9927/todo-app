@@ -29,13 +29,13 @@ export class TodoItemComponent implements OnInit {
   }
 
   handleCheck() {
+    console.log("mi hai cliccato")
     this.onCheck.emit({ id: this.todo.id, checked: !this.todo.checked });
     // SetItem check
     localStorage.setItem("todos", JSON.stringify(this.mService.todos));
   }
 
   onClickRemove(id: number) {
-    localStorage.setItem("todos", JSON.stringify(this.mService.todos));
     this.mService.deleteTodoById(id);
   }
 }

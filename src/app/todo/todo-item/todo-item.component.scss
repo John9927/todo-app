@@ -58,16 +58,23 @@
 }
 
 .item__remove {
-  display: flex;
-  width: 45px;
-  cursor: pointer;
+  display: none;
 }
 
-.fa-times {
-  width: 14px;
-  height: 21px;
-  transition: 400ms;
-  color: var(--text);
-}
 
+@media screen and (max-width: 400px) {
+  .item__remove {
+    display: flex;
+    width: 45px;
+    cursor: pointer;
+  }
+
+  .fa-times {
+    width: 14px;
+    height: 21px;
+    transition: 400ms;
+    color: var(--text);
+  }
+
+}
 

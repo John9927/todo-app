@@ -45,6 +45,14 @@
   pointer-events: none;
 }
 
+#allSection {
+  display: flex;
+}
+
+#container__section {
+  display: none;
+}
+
 .logo__sun {
   width: 20px;
   height: 20px;
@@ -161,6 +169,31 @@
     margin: 0 auto;
   }
 
+  #container__section {
+    display: flex;
+  }
+
+  #allSection {
+    display: none;
+  }
+
+  #container__section {
+    margin-top: 10px;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+  }
+
+  #section {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+  }
+
+  .section__item {
+    font-size: 13px;
+  }
+
   .card {
     display: flex;
     width: 90%;
@@ -170,7 +203,6 @@
     display: flex;
     width: 90%;
     cursor: pointer;
-    pointer-events: none;
   }
 
   .title {

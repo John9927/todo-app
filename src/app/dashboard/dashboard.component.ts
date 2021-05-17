@@ -79,6 +79,10 @@ export class DashboardComponent implements OnInit {
     document.getElementById('itemCompleted').style.color = "#4646f6";
     document.getElementById('itemActive').style.color = "var(--text)";
     document.getElementById('itemAll').style.color = "var(--text)";
+    // Mobile
+    document.getElementById('itemCompletedMobile').style.color = "#4646f6";
+    document.getElementById('itemActiveMobile').style.color = "var(--text)";
+    document.getElementById('itemAllMobile').style.color = "var(--text)";
     this.mService.onlyCompleted();
   }
 
@@ -86,6 +90,10 @@ export class DashboardComponent implements OnInit {
     document.getElementById('itemActive').style.color = "#4646f6";
     document.getElementById('itemCompleted').style.color = "var(--text)";
     document.getElementById('itemAll').style.color = "var(--text)";
+    // Mobile
+    document.getElementById('itemActiveMobile').style.color = "#4646f6";
+    document.getElementById('itemCompletedMobile').style.color = "var(--text)";
+    document.getElementById('itemAllMobile').style.color = "var(--text)";
     this.mService.onlyActive();
   }
 
@@ -93,6 +101,10 @@ export class DashboardComponent implements OnInit {
     document.getElementById('itemAll').style.color = "#4646f6";
     document.getElementById('itemCompleted').style.color = "var(--text)";
     document.getElementById('itemActive').style.color = "var(--text)";
+    // Mobile
+    document.getElementById('itemAllMobile').style.color = "#4646f6";
+    document.getElementById('itemCompletedMobile').style.color = "var(--text)";
+    document.getElementById('itemActiveMobile').style.color = "var(--text)";
     this.mService.allTodo();
   }
 }

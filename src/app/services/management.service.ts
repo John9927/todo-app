@@ -32,7 +32,7 @@ export class ManagementService {
   }
 
   deleteTodoById(id: number) {
-    localStorage.setItem("todos", JSON.stringify(this.todos));
     this.todos = this.todos.filter(t => t.id !== id)
+    localStorage.setItem("todos", JSON.stringify(this.todos));
   }
 }
